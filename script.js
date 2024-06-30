@@ -16,8 +16,41 @@ y.addEventListener("click", () => {
 })
 
 let l = document.querySelector("#l")
+let etoile0 = document.querySelector("#etoile0")
+etoile0.style.top = "10px"
+etoile0.style.right = "0px"
+let etoile1 = document.querySelector("#etoile1")
+etoile1.style.top = "-600px"
+etoile1.style.right = "-700px"
+let etoile_top = undefined
+let etoile_right = undefined
+let list_etoile = [etoile0, etoile1]
+function MoveEtoile(etoile){
+    etoile_top = etoile.style.top
+    etoile_top = etoile_top.replace("px", "")
+    etoile_right = etoile.style.right
+    etoile_right = etoile_right.replace("px", "")
+    if (etoile_top < 1400){
+        etoile_top -= -2
+        etoile_right -= -4
+    }else{
+        etoile_top = 10
+        etoile_right = 10
+    }
+
+    etoile.style.top = `${etoile_top}px`
+    etoile.style.right = `${etoile_right}px`
+}
 l.addEventListener("click", () => {
-    document.body.style.background = ""
+    document.body.style.background = `linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.6))`
+    for (let t in list_etoile){
+        list_etoile[t].removeAttribute("hidden")
+    }
+    setInterval(() => {
+        for (let j in list_etoile){
+            MoveEtoile(list_etoile[j])
+        }
+    }, "5")
 })
 
 

@@ -30,15 +30,13 @@ body{
     cursor: pointer;
 }
 
-
-
-
-
-
-
-
-
-
+.etoile{
+    position: absolute;
+    width: 3px;
+    height: 80px;
+    background: linear-gradient(rgba(109, 109, 109, 0.1), white);
+    rotate: 70deg;
+}
 
 
 
